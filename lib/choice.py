@@ -9,13 +9,11 @@ class Choice():
    def __eq__(self, other):
       return self._value == other._value
 
-   def _beats(self, other):
-      return self._value == "p"
-
-   def winning_message(self, computer_choice):
-      if self == computer_choice:
-         return "It's a tie!"
-      elif self._beats(computer_choice):
-         return "Player wins!"
+   def beats(self, other):
+      if self._value == "s":
+         return True if other._value == "p" else False
+      elif self._value == "p":
+         return True if other._value == "r" else False
       else:
-         return "Computer wins!"
+         return True if other._value == "s" else False
+
