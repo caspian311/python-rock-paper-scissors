@@ -46,3 +46,30 @@ def test_play_computers_choice_is_displayed_if_computer_picks_other_option(mocke
 
    lib.console.display.assert_any_call("Computer played Rock!")
 
+def test_play_states_when_a_tie_occurres(mocker):
+   mocker.patch('lib.console.display')
+   mocker.patch('lib.player_input.read_choice', return_value="r")
+   mocker.patch('lib.computer_input.read_choice', return_value="r")
+
+   Game.play()
+
+   lib.console.display.assert_any_call("It's a tie!")
+
+def test_play_states_when_the_computer_wins(mocker):
+   mocker.patch('lib.console.display')
+   mocker.patch('lib.player_input.read_choice', return_value="s")
+   mocker.patch('lib.computer_input.read_choice', return_value="r")
+
+   Game.play()
+
+   lib.console.display.assert_any_call("Computer wins!")
+
+def test_play_states_when_the_player_wins(mocker):
+   mocker.patch('lib.console.display')
+   mocker.patch('lib.player_input.read_choice', return_value="p")
+   mocker.patch('lib.computer_input.read_choice', return_value="r")
+
+   Game.play()
+
+   lib.console.display.assert_any_call("Player wins!")
+
