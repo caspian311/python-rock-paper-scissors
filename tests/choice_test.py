@@ -22,19 +22,13 @@ def test_not_equality():
 
 def test_paper_beats_rock():
    assert Choice("p").beats(Choice("r")) == True
-
-def test_rock_does_not_beat_paper():
    assert Choice("r").beats(Choice("p")) == False
-
-def test_scissors_beats_paper():
-   assert Choice("s").beats(Choice("p")) == True
-
-def test_paper_does_not_beat_scissors():
-   assert Choice("p").beats(Choice("s")) == False
 
 def test_rock_beats_scissors():
    assert Choice("s").beats(Choice("p")) == True
-
-def test_scissors_does_not_beat_rock():
    assert Choice("s").beats(Choice("r")) == False
+
+def test_scissors_beats_paper():
+   assert Choice("s").beats(Choice("p")) == True
+   assert Choice("p").beats(Choice("s")) == False
 
