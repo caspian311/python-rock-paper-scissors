@@ -3,6 +3,7 @@ import lib.console
 
 def test_play_prompts_for_users_option(mocker):
    mocker.patch('lib.console.display')
+   mocker.patch('lib.console.display_no_newline')
    mocker.patch('lib.player_input.read_choice')
    mocker.patch('lib.computer_input.read_choice')
 
@@ -12,6 +13,7 @@ def test_play_prompts_for_users_option(mocker):
 
 def test_play_players_choice_is_displayed(mocker):
    mocker.patch('lib.console.display')
+   mocker.patch('lib.console.display_no_newline')
    mocker.patch('lib.computer_input.read_choice')
    mocker.patch('lib.player_input.read_choice', return_value="r")
 
@@ -21,6 +23,7 @@ def test_play_players_choice_is_displayed(mocker):
 
 def test_play_players_choice_is_displayed_if_user_picks_other_option(mocker):
    mocker.patch('lib.console.display')
+   mocker.patch('lib.console.display_no_newline')
    mocker.patch('lib.computer_input.read_choice')
    mocker.patch('lib.player_input.read_choice', return_value="s")
 
@@ -30,6 +33,7 @@ def test_play_players_choice_is_displayed_if_user_picks_other_option(mocker):
 
 def test_play_computers_choice_is_displayed(mocker):
    mocker.patch('lib.console.display')
+   mocker.patch('lib.console.display_no_newline')
    mocker.patch('lib.player_input.read_choice')
    mocker.patch('lib.computer_input.read_choice', return_value="p")
 
@@ -39,6 +43,7 @@ def test_play_computers_choice_is_displayed(mocker):
 
 def test_play_computers_choice_is_displayed_if_computer_picks_other_option(mocker):
    mocker.patch('lib.console.display')
+   mocker.patch('lib.console.display_no_newline')
    mocker.patch('lib.player_input.read_choice')
    mocker.patch('lib.computer_input.read_choice', return_value="r")
 

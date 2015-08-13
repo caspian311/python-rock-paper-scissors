@@ -1,34 +1,34 @@
-from lib.choice import Choice
+from lib.choice_creator import ChoiceCreator
 
 def test_strifiy():
-   assert "Rock" == str(Choice("r"))
-   assert "Scissors" == str(Choice("s"))
-   assert "Paper" == str(Choice("p"))
+   assert "Rock" == str(ChoiceCreator.create("r"))
+   assert "Scissors" == str(ChoiceCreator.create("s"))
+   assert "Paper" == str(ChoiceCreator.create("p"))
 
 def test_equality():
-   assert Choice("r") == Choice("r")
-   assert Choice("s") == Choice("s")
-   assert Choice("p") == Choice("p")
+   assert ChoiceCreator.create("r") == ChoiceCreator.create("r")
+   assert ChoiceCreator.create("s") == ChoiceCreator.create("s")
+   assert ChoiceCreator.create("p") == ChoiceCreator.create("p")
 
 def test_not_equality():
-   assert Choice("r") != Choice("s")
-   assert Choice("r") != Choice("p")
+   assert ChoiceCreator.create("r") != ChoiceCreator.create("s")
+   assert ChoiceCreator.create("r") != ChoiceCreator.create("p")
 
-   assert Choice("s") != Choice("r")
-   assert Choice("s") != Choice("p")
+   assert ChoiceCreator.create("s") != ChoiceCreator.create("r")
+   assert ChoiceCreator.create("s") != ChoiceCreator.create("p")
 
-   assert Choice("p") != Choice("r")
-   assert Choice("p") != Choice("s")
+   assert ChoiceCreator.create("p") != ChoiceCreator.create("r")
+   assert ChoiceCreator.create("p") != ChoiceCreator.create("s")
 
 def test_paper_beats_rock():
-   assert Choice("p").beats(Choice("r")) == True
-   assert Choice("r").beats(Choice("p")) == False
+   assert ChoiceCreator.create("p").beats(ChoiceCreator.create("r")) == True
+   assert ChoiceCreator.create("r").beats(ChoiceCreator.create("p")) == False
 
 def test_rock_beats_scissors():
-   assert Choice("s").beats(Choice("p")) == True
-   assert Choice("s").beats(Choice("r")) == False
+   assert ChoiceCreator.create("s").beats(ChoiceCreator.create("p")) == True
+   assert ChoiceCreator.create("s").beats(ChoiceCreator.create("r")) == False
 
 def test_scissors_beats_paper():
-   assert Choice("s").beats(Choice("p")) == True
-   assert Choice("p").beats(Choice("s")) == False
+   assert ChoiceCreator.create("s").beats(ChoiceCreator.create("p")) == True
+   assert ChoiceCreator.create("p").beats(ChoiceCreator.create("s")) == False
 

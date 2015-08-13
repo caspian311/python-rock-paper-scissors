@@ -1,15 +1,15 @@
 import console
 import player_input
 import computer_input
-from choice import Choice
+from choice_creator import ChoiceCreator
 
 class Game():
    @classmethod
    def play(cls):
       console.display("Rock (r), Paper (p) or Scissors (s):")
 
-      player_choice = Choice(player_input.read_choice())
-      computer_choice = Choice(computer_input.read_choice())
+      player_choice = ChoiceCreator.create(player_input.read_choice())
+      computer_choice = ChoiceCreator.create(computer_input.read_choice())
 
       console.display("You played " + str(player_choice) + "!")
       console.display("Computer played " + str(computer_choice) + "!")
